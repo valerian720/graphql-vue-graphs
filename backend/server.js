@@ -8,6 +8,7 @@ var schema = buildSchema(`
     quoteOfTheDay: String
     random: Float!
     rollThreeDice: [Int]
+    rollDice(numDice: Int!, numSides: Int): [Int]
   }
 `);
 
@@ -22,6 +23,13 @@ var root = {
   rollThreeDice: () => {
     return [1, 2, 3].map((_) => 1 + Math.floor(Math.random() * 6));
   },
+  rollDice: ({ numDice, numSides }) => {
+    var output = [];
+    for (var i = 0; i < numDice; i++) {
+      output.push(1 + Math.floor(Math.random() * (numSides || 6)));
+    }
+    return output;
+  },
 };
 
 var app = express();
@@ -34,4 +42,5 @@ app.use(
   })
 );
 app.listen(4000);
-console.log("Running a GraphQL API server at localhost:4000/graphql");
+console.log("Running a GraphQL API server at ");
+console.log("\x1b[36m%s\x1b[0m", "http://localhost:4000/graphql");
