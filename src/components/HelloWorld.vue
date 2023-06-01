@@ -5,7 +5,6 @@
     <p v-if="loading">Loading...</p>
     <div v-if="result">
       <div v-for="character in result.characters.results" :key="character.id">
-        <img :src="character.image" :alt="character.name" />
         <p>{{ character.name }}</p>
       </div>
     </div>
@@ -18,15 +17,24 @@ import gql from "graphql-tag";
 import { useQuery } from "@vue/apollo-composable";
 import { Ref } from "vue";
 //
+// const CHARACTERS_QUERY = gql`
+//   query Characters {
+//     characters {
+//       results {
+//         id
+//         name
+//         image
+//       }
+//     }
+//   }
+// `;
 const CHARACTERS_QUERY = gql`
   query Characters {
-    characters {
-      results {
-        id
-        name
-        image
-      }
+    {
+    getDie(numSides: 6) {
+      rollOnce
     }
+  }
   }
 `;
 
