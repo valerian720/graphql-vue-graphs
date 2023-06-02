@@ -1,1 +1,2 @@
-node backend/server.js
+cd backend
+npm run start
