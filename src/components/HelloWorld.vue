@@ -4,9 +4,12 @@
     <p v-if="error">Something went wrong...</p>
     <p v-if="loading">Loading...</p>
     <div v-if="result">
-      <div v-for="character in result.characters.results" :key="character.id">
-        <p>{{ character.name }}</p>
+      <div v-for="record in result.Records" :key="record.id">
+        <p>{{ record.value }}</p>
       </div>
+      <!-- <div v-for="character in result.characters.results" :key="character.id">
+        <p>{{ character.name }}</p>
+      </div> -->
     </div>
   </div>
 </template>
@@ -29,12 +32,11 @@ import { Ref } from "vue";
 //   }
 // `;
 const CHARACTERS_QUERY = gql`
-  query Characters {
-    {
-    getDie(numSides: 6) {
-      rollOnce
+  query {
+    Records {
+      id
+      value
     }
-  }
   }
 `;
 
