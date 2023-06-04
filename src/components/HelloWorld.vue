@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>graph ql test</h1>
+    <button type="button" class="btn btn-primary btn-lg">Button</button>
     <p v-if="error">Something went wrong...</p>
     <p v-if="loading">Loading...</p>
     <div v-if="result">

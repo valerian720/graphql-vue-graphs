@@ -5,6 +5,8 @@ import store from "./store";
 import { createApp, provide, h } from "vue";
 import { DefaultApolloClient } from "@vue/apollo-composable";
 import { ApolloClient, InMemoryCache } from "@apollo/client/core";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap";
 
 const cache = new InMemoryCache();
 
