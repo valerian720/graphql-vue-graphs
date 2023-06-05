@@ -1,6 +1,11 @@
 <template>
   <div class="hello">
     <h1>graph ql test</h1>
+    <div class="row">
+      <div class="col-6"></div>
+      <!-- <BarChart class="col-6" /> -->
+      <LineChart class="col-6" />
+    </div>
     <button type="button" class="btn btn-primary btn-lg">Button</button>
     <p v-if="error">Something went wrong...</p>
     <p v-if="loading">Loading...</p>
@@ -20,6 +25,9 @@ import { Options, Vue } from "vue-class-component";
 import gql from "graphql-tag";
 import { useQuery } from "@vue/apollo-composable";
 import { Ref } from "vue";
+
+import BarChart from "@/components/BarChart.vue";
+import LineChart from "@/components/LineChart.vue";
 //
 // const CHARACTERS_QUERY = gql`
 //   query Characters {
@@ -41,6 +49,12 @@ const CHARACTERS_QUERY = gql`
   }
 `;
 
+@Options({
+  components: {
+    BarChart,
+    LineChart,
+  },
+})
 export default class HelloWorld extends Vue {
   msg!: string;
 

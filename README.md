@@ -1,5 +1,8 @@
 # graphql-vue-graphs
 
+Основная идея данного проекта - тест GraphQL и его связь с Vue
+А так же тест связи Vue и библиотеки для построения графиков
+
 ## Project setup
 ```
 npm install
